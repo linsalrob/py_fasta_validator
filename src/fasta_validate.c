@@ -85,6 +85,7 @@ int run(char *filename, int verbose) {
 			if ((found_item = hsearch(item, FIND)) != NULL) {
 				if (verbose)
 					fprintf(stderr, "ERROR: Found a duplicate id: %s\n", line);
+                hdestroy();
 				return 2;
 			}
 
@@ -93,16 +94,19 @@ int run(char *filename, int verbose) {
 			if (firstline > 0) {
 				if (verbose)
 					fprintf(stderr, "ERROR: The first line should start with a >\n");
+                hdestroy();
 				return 1; // the first line should start with a >
 			}
 			int nwc = contains_non_word_characters(line, verbose);
 			if (nwc > 0) {
 				if (verbose)
 					fprintf(stderr, "ERROR: We have a non word character!\n");
+                hdestroy();
 				return 4;
 			}
 		}
 	}
+	hdestroy();
 	return 0;
 }
 

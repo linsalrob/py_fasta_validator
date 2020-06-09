@@ -48,7 +48,7 @@ int run(char *filename, int verbose);
 /**
  * Code for connecting C -> Python
  **/
-static PyObject * python_input(PyObject *self, PyObject *args);
+PyObject * python_input(PyObject *self, PyObject *args);
 
 
 static PyMethodDef FastaValidatorMethods[] = {
