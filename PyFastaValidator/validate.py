@@ -5,7 +5,9 @@ Validate a fasta file or except with the appropriate code.
 import sys
 import argparse
 
-from PyFastaValidator import validate_fasta_file, __version__
+from PyFastaValidator import __version__, \
+import FastaValidator
+
 
 
 def validate():
@@ -19,13 +21,14 @@ def validate():
 
     if args.file:
         r = 0
-        try:
-            r = validate_fasta_file(args.file)
-        except Exception as e:
-            print(f"Recieved the error {e} from {type(e)}")
-            print(f"Exiting with code {r}")
-            sys.exit(r)
-        print(f"Exiting with code {r}")
-        sys.exit(r)
-    else:
-        print(f"{sys.argv[0]} version {__version__}")
+        rc = FastaValidator.fasta_validator(args.file)
+
+        if rc == 1:
+            sys.stderr.write(f"{args.file} does not start with a >\n")
+        if rc == 2:
+            sys.stderr.write(f"{args.file} has multiple sequences with the same identifier\n")
+        if rc == 4:
+            sys.stderr.write(f"{args.file} has non-sequence characters in it\n")
+            sys.exit(rc)
+        else:
+            print(f"{sys.argv[0]} version {__version__}")
