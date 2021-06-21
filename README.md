@@ -97,10 +97,10 @@ to install it as a user, just copy the compiled binary `fasta_validate` to somew
 
 # Testing
 
-To test the code you can use the example provided.
+To test the code you can use the example data provided. Download the [test data set](https://github.com/linsalrob/py_fasta_validator/raw/master/test.zip) [zip file, 16.4 kb] and uncompress it.
 
 ```
-python3 example_validations.py -f test/good.fasta
+
 ```
 
 or you can run that example on all the tests:

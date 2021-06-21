@@ -20,9 +20,11 @@ def validate():
     if args.file:
         r = 0
         try:
-            r = validate_fasta_file(args.f)
+            r = validate_fasta_file(args.file)
         except Exception as e:
             print(f"Recieved the error {e} from {type(e)}")
+            print(f"Exiting with code {r}")
+            sys.exit(r)
         print(f"Exiting with code {r}")
         sys.exit(r)
     else:
