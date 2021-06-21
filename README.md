@@ -1,3 +1,10 @@
+[![Edwards Lab](https://img.shields.io/badge/Bioinformatics-EdwardsLab-03A9F4)](https://edwards.flinders.edu.au)
+[![DOI](https://www.zenodo.org/badge/270903677.svg)](https://www.zenodo.org/badge/latestdoi/270903677)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![GitHub language count](https://img.shields.io/github/languages/count/linsalrob/py_fasta_validator)
+[![PyPi](https://img.shields.io/pypi/pyversions/py-fasta-validator.svg?style=flat-square&label=PyPi%20Versions)](https://pypi.org/project/py-fasta-validator/)
+[![Downloads](https://img.shields.io/github/downloads/linsalrob/py_fasta_validator/total?style=flat-square)](https://github.com/linsalrob/py_fasta_validator/releases)
+
 # py_fasta_validator
 
 A Python extension of the [fasta validator](https://github.com/linsalrob/fasta_validator)
