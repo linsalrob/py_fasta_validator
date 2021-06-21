@@ -34,7 +34,7 @@ Other exit codes (e.g. 255, 254, etc) indicate internal errors in the program.
 Install with pip:
 
 ```
-pip3 install pyfastavalidator
+pip install py-fasta-validator
 ```
 
 ### Advanced
