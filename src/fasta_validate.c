@@ -34,7 +34,7 @@ int contains_non_word_characters(char *seq, int verbose) {
 		return 8;
 	}
 
-	for (int i=0; i<strlen(seq); i++) {
+	for (size_t i=0; i < strlen(seq); i++) {
 		if ((int) seq[i] < 65) {
 			if (((int) seq[i] != 10) && ((int) seq[i] != 13))
 				return 1;

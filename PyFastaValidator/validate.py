@@ -14,7 +14,7 @@ def validate():
     """
     parser = argparse.ArgumentParser(description='Validate a fasta file')
     parser.add_argument('-f', '--file', help='fasta file to validate')
-    parser.add_argument('-v', '--version', help='print the version')
+    parser.add_argument('-v', '--version', help='print the version', action='store_true')
     args = parser.parse_args()
 
     if args.file:

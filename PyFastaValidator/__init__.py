@@ -4,5 +4,6 @@ from .version import __version__
 
 __all__ = [
     'validate_fasta_file',
-    'FirstCharacterIncorrect', 'DuplicateIdentifiers', 'NonSequenceCharacters'
+    'FirstCharacterIncorrect', 'DuplicateIdentifiers', 'NonSequenceCharacters',
+    '__version__'
 ]

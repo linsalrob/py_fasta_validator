@@ -1,4 +1,4 @@
 include *.md LICENSE VERSION example_validations.py
 recursive-include PyFastaValidator *py
-recursive-include src *.h *.cpp
+recursive-include src *.h *.c
 

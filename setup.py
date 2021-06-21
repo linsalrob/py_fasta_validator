@@ -52,6 +52,7 @@ def main():
             'Programming Language :: Python :: 3.0',
             'Topic :: Scientific/Engineering :: Bio-Informatics',
         ],
+        zip_safe=True,
     )
 
 
