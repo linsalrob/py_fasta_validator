@@ -30,13 +30,17 @@ We will exit with the following return codes:
 
 Other exit codes (e.g. 255, 254, etc) indicate internal errors in the program.
 
-# Prerequisites
-
-[fasta validator](https://github.com/linsalrob/fasta_validator) is written in ANSI C but you will also need the Python developers toolkit (e.g. python-3.x-dev installed on your machine to provide Python.h)
-
 # Installation
 
 ### Everyone
+
+[Recommended]:
+
+Install with conda. This is the easiest way to install `py_fasta_validator` and the recommended method:
+
+```command-line
+conda install -c bioconda py_fasta_validator
+```
 
 Install with pip:
 
@@ -45,6 +49,13 @@ pip install py-fasta-validator
 ```
 
 ### Advanced
+
+#### Prerequisites
+
+If you install using one the methods above you don't need to worry about the prerequistes, they are already included!
+
+[fasta validator](https://github.com/linsalrob/fasta_validator) is written in ANSI C but you will also need the Python developers toolkit (e.g. python-3.x-dev installed on your machine to provide Python.h)
+
 
 To clone the code from GitHub use:
 
