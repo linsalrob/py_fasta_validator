@@ -34,13 +34,15 @@ Other exit codes (e.g. 255, 254, etc) indicate internal errors in the program.
 
 ### Everyone
 
-[Recommended]:
+_Recommended:_
 
 Install with conda. This is the easiest way to install `py_fasta_validator` and the recommended method:
 
 ```command-line
 conda install -c bioconda py_fasta_validator
 ```
+
+_Alternate method:_
 
 Install with pip:
 
