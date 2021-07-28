@@ -30,13 +30,31 @@ We will exit with the following return codes:
 
 Other exit codes (e.g. 255, 254, etc) indicate internal errors in the program.
 
-# Prerequisites
+# Running py_fasta_validator
 
-[fasta validator](https://github.com/linsalrob/fasta_validator) is written in ANSI C but you will also need the Python developers toolkit (e.g. python-3.x-dev installed on your machine to provide Python.h)
+The installation now also includes a command line application, `py_fasta_validator` that you can run. See the Testing section below!
+
+You can also import FastaValidator directly:
+
+```python
+import FastaValidator
+
+return_code = FastaValidator.fasta_validator(file_name)
+```
 
 # Installation
 
 ### Everyone
+
+_Recommended:_
+
+Install with conda. This is the easiest way to install `py_fasta_validator` and the recommended method:
+
+```command-line
+conda install -c bioconda py_fasta_validator
+```
+
+_Alternate method:_
 
 Install with pip:
 
@@ -45,6 +63,13 @@ pip install py-fasta-validator
 ```
 
 ### Advanced
+
+#### Prerequisites
+
+If you install using one the methods above you don't need to worry about the prerequistes, they are already included!
+
+[fasta validator](https://github.com/linsalrob/fasta_validator) is written in ANSI C but you will also need the Python developers toolkit (e.g. python-3.x-dev installed on your machine to provide Python.h)
+
 
 To clone the code from GitHub use:
 
@@ -99,16 +124,34 @@ to install it as a user, just copy the compiled binary `fasta_validate` to somew
 
 To test the code you can use the example data provided. Download the [test data set](https://github.com/linsalrob/py_fasta_validator/raw/master/test.zip) [zip file, 16.4 kb] and uncompress it.
 
+```command-line
+$ for FASTA in test/*fasta; do echo $FASTA; py_fasta_validator -f $FASTA; echo "Exit code: $?"; done
 ```
 
-```
+This will output the name of the fasta file, the output, and the exit code from the process:
 
-or you can run that example on all the tests:
-
-```
-for F in test/*; do
-	python3 example_validations.py -f $F;
-done
+```command-line
+test/code.fasta
+test/code.fasta has non-sequence characters in it
+Exit code: 4
+test/duplicates_no_spaces.fasta
+test/duplicates_no_spaces.fasta has multiple sequences with the same identifier
+Exit code: 2
+test/duplicates_with_spaces.fasta
+test/duplicates_with_spaces.fasta has multiple sequences with the same identifier
+Exit code: 2
+test/good.fasta
+Exit code: 0
+test/good_mixed.fasta
+Exit code: 0
+test/good_multiline.fasta
+Exit code: 0
+test/no_first_line.fasta
+test/no_first_line.fasta does not start with a >
+Exit code: 1
+test/space.fasta
+test/space.fasta has non-sequence characters in it
+Exit code: 4
 ```
 
 
