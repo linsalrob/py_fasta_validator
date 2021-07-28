@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![GitHub language count](https://img.shields.io/github/languages/count/linsalrob/py_fasta_validator)
 [![PyPi](https://img.shields.io/pypi/pyversions/py-fasta-validator.svg?style=flat-square&label=PyPi%20Versions)](https://pypi.org/project/py-fasta-validator/)
-[![Downloads](https://img.shields.io/github/downloads/linsalrob/py_fasta_validator/total?style=flat-square)](https://github.com/linsalrob/py_fasta_validator/releases)
+[![Anaconda-Server Badge](https://anaconda.org/bioconda/py_fasta_validator/badges/version.svg)](https://anaconda.org/bioconda/py_fasta_validator)
 
 # py_fasta_validator
 
