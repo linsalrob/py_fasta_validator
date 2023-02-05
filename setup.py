@@ -38,8 +38,6 @@ setup(
     entry_points={
         "console_scripts": ["py_fasta_validator = PyFastaValidator.validate:validate"]
     },
-    use_scm_version=True,
-    setup_requires=['setuptools_scm'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Science/Research',
