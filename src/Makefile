@@ -3,10 +3,10 @@
 
 
 FLAGS := $(FLAGS) -Wall
-override CFLAGS += $(shell pkg-config --cflags --libs python3)
+override CFLAGS += $(shell pkg-config --cflags --libs python3-embed)
 
 all:
-	gcc $(FLAGS) -o fasta_validate ./fasta_validate.c $(CFLAGS) -lpython3.8
+	gcc $(FLAGS) -o fasta_validate ./fasta_validate.c $(CFLAGS) -lz
 
 install: all
 	cp fasta_validate /usr/local/bin
