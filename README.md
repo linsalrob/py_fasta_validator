@@ -155,6 +155,33 @@ Exit code: 4
 ```
 
 
+# Developing/Testing
+
+Note, if you are developing and testing in a conda environment, you might run into an error like:
+
+```
+./fasta_validate: error while loading shared libraries: libpython3.11.so.1.0: cannot open shared object file: No such file or directory
+```
+
+You need to make sure that `LD_LIBRARY_PATH` is set to your `/lib/` in your conda environment.
+
+For example:
+
+```bash
+$ ./fasta_validate
+./fasta_validate: error while loading shared libraries: libpython3.11.so.1.0: cannot open shared object file: No such file or directory
+$ mamba install -y python-devtools
+$ which python
+~/miniconda3/envs/py_fasta/bin/python
+$ export LD_LIBRARY_PATH_OLD=$LD_LIBRARY_PATH # make a back up of the original LD_LIBRARY_PATH, just in case!
+$ export LD_LIBRARY_PATH=$HOME/miniconda3/envs/py_fasta/lib/:$LD_LIBRARY_PATH # set the new library path
+$ ./fasta_validate 
+./fasta_validate [-v] [fasta file]
+```
+
+Note: to make this change permanent you should set the `$LD_LIBRARY_PATH` variable (and the copy) in `etc/conda/activate.d/env_vars.sh` and `etc/conda/deactivate.d/env_vars.sh` as [described in the docs](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#macos-and-linux)
+
+
 # Citation
 
 Please cite this as 
@@ -173,6 +200,5 @@ This version adds the Python hooks, and so it requires the Python development li
 # License
 
 This software is released using the [MIT License](LICENSE)
-
 
 
