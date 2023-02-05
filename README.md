@@ -32,7 +32,19 @@ Other exit codes (e.g. 255, 254, etc) indicate internal errors in the program.
 
 # Running py_fasta_validator
 
-The installation now also includes a command line application, `py_fasta_validator` that you can run. See the Testing section below!
+The installation includes a command line application, `py_fasta_validator` that you can run. 
+
+```bash
+py_fasta_validator -f file.fasta
+```
+
+or if the file is compressed with gzip:
+
+```bash
+py_fasta_validator -f file.fasta.gz
+```
+
+## As a python module
 
 You can also import FastaValidator directly:
 
@@ -125,7 +137,7 @@ to install it as a user, just copy the compiled binary `fasta_validate` to somew
 To test the code you can use the example data provided. Download the [test data set](https://github.com/linsalrob/py_fasta_validator/raw/master/test.zip) [zip file, 16.4 kb] and uncompress it.
 
 ```command-line
-$ for FASTA in test/*fasta; do echo $FASTA; py_fasta_validator -f $FASTA; echo "Exit code: $?"; done
+$ for FASTA in test/*fasta test/*fasta.gz; do echo $FASTA; py_fasta_validator -f $FASTA; echo "Exit code: $?"; done
 ```
 
 This will output the name of the fasta file, the output, and the exit code from the process:
@@ -151,6 +163,27 @@ test/no_first_line.fasta does not start with a >
 Exit code: 1
 test/space.fasta
 test/space.fasta has non-sequence characters in it
+Exit code: 4
+test/code.fasta.gz
+test/code.fasta.gz has non-sequence characters in it
+Exit code: 4
+test/duplicates_no_spaces.fasta.gz
+test/duplicates_no_spaces.fasta.gz has multiple sequences with the same identifier
+Exit code: 2
+test/duplicates_with_spaces.fasta.gz
+test/duplicates_with_spaces.fasta.gz has multiple sequences with the same identifier
+Exit code: 2
+test/good.fasta.gz
+Exit code: 0
+test/good_mixed.fasta.gz
+Exit code: 0
+test/good_multiline.fasta.gz
+Exit code: 0
+test/no_first_line.fasta.gz
+test/no_first_line.fasta.gz does not start with a >
+Exit code: 1
+test/space.fasta.gz
+test/space.fasta.gz has non-sequence characters in it
 Exit code: 4
 ```
 
