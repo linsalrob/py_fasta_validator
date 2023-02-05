@@ -34,7 +34,7 @@ setup(
     long_description_content_type="text/markdown",
     platforms='any',
     keywords="bioinformatics genome genomics fasta",
-    ext_modules=[Extension("FastaValidator", sources=["src/fasta_validate.c"], language='c')],
+    ext_modules=[Extension("FastaValidator", sources=["src/fasta_validate.c"], libraries=['z'], language='c')],
     entry_points={
         "console_scripts": ["py_fasta_validator = PyFastaValidator.validate:validate"]
     },
