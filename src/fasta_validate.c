@@ -17,6 +17,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <search.h>
+#include "zlib.h"
 
 #include "fasta_validate.h"
 
@@ -55,18 +56,18 @@ int run(char *filename, int verbose) {
 		return -1;
 	}
 
-	FILE * fp;
+	gzFile fp;
 
 	char line[MAXLINELEN];
 
-	if ((fp = fopen(filename, "r")) == NULL) {
+	if ((fp = gzopen(filename, "r")) == NULL) {
 		if (verbose)
 			fprintf(stderr, "Can't open file %s\n", filename);
 		exit(1);
 	}
 
 	int firstline = 1;
-	while ((fgets(line, MAXLINELEN, fp)) != NULL) {
+	while ((gzgets(fp, line, MAXLINELEN)) != NULL) {
 		if ((int) line[0] == 62) { // not sure why I'm using an ascii comparison, but I'm thinking ascii at the moment
 			firstline = 0;
 			// remove anything after the first space
